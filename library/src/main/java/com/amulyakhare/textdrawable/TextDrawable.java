@@ -172,7 +172,6 @@ public class TextDrawable extends ShapeDrawable {
             width = -1;
             height = -1;
             shape = new RectShape();
-            font = TypefaceHelper.get("sans-serif-light", Typeface.NORMAL);
             fontSize = -1;
             isBold = false;
             toUpperCase = false;
@@ -268,6 +267,9 @@ public class TextDrawable extends ShapeDrawable {
 
         @Override
         public TextDrawable build(String text, int color) {
+            if (this.font == null) {
+                font = TypefaceHelper.get("sans-serif-light", Typeface.NORMAL);
+            }
             this.color = color;
             this.text = text;
             return new TextDrawable(this);
